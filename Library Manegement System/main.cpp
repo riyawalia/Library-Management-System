@@ -7,7 +7,7 @@
 //
 
 // books will be represented by a class Book with string for bname, int for price, object date for date of issue (all instances of date will be 0 if not issued), string for bauthor, int for late fee
-// functions in class Book include constructor function that will input values, display function and 
+// functions in class Book include constructor function that will input values, display function and
 // date will be represented by an object with year, month, date
 // books will be organised in a binary tree where the key is the book code and the value is the coresponding book
 // if book is returned 2 weeks after issue date, late fee starts. 1$ for each day for another month. If a month or more, borrower has to pay the price of the book.
@@ -72,12 +72,12 @@ public:
         else std::cout<<"Book returned on time. No late fee charged!"<<std::endl;
         date.reset_date();
         strcpy(issuer,"Not issued by anybody yet");
-    
+        
         
     }
-
-// Late fee is charged when the book is returned after two weeks or more of the date of issue.
-//    If the book is returned after a month or later, a late fee equal to the price of the book is charged.
+    
+    // Late fee is charged when the book is returned after two weeks or more of the date of issue.
+    //    If the book is returned after a month or later, a late fee equal to the price of the book is charged.
     
     void calculate_fee() {
         Date current_date;
@@ -86,7 +86,7 @@ public:
             if (current_date.day- date.day>=14)
                 fee= current_date.day- date.day;
             else fee=0;
-            }
+        }
         if (current_date.month!=date.month) {
             if (30-date.day+ current_date.day>=30)
                 fee= price;
@@ -188,7 +188,7 @@ int main() {
                 std::cout<<"Enter Book ID of the book to be issued: "; std::cin>>id;
                 node *bnode= booktree.search(id, booktree.root);
                 bnode->B.issue_book();
-        }
+            }
                 break;
             case 'C': { int id;
                 std::cout<<"Enter Book ID of the book to be returned: "; std::cin>>id;
@@ -203,9 +203,11 @@ int main() {
                 bnode->B.display_book();
             }
                 break;
+            default:
+                std::cout<<"Invalid command. Please try again."<<std::endl;
+                
+        }
         
     }
-    
-}
 }
 
