@@ -1,0 +1,3 @@
+I implemented binary trees and objects/classes in the form of a library management system as I taught myself object oriented programming and Data Structures. 
+Books and Dates of Issue are represented as objects. Books are stored in a binary tree, where the key value is an identification number unique to each code. The user can add books, view stored books, issue books and return books. 
+This library management system was implemented using C++. 
